@@ -11,10 +11,11 @@ public class Nqueens {
         }
         //for verticfal
         for (int j = 0;j<board.length;j++){
-            if (board[i][col] == 'Q'){
+            if (board[j][col] == 'Q'){
                 return false;
             }
         }
+        
         int r = row;
         int c = col;
         for (; r>=0 && c >= 0;c--,r--){
