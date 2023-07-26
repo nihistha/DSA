@@ -6,17 +6,14 @@ import java.util.LinkedList;
 
 public class AdjList {
     int vertices;
-    SinglyLinkedList list[];
+    SinglyLinkedList list[]; // this is an array
 
-    AdjList(int vertices) {
+    AdjList(int vertices) { //constructor to give vertices 
         this.vertices = vertices;
-        list = new SinglyLinkedList[vertices];
-
-        for (int i = 0; i < vertices; i++) {
-
+        list = new SinglyLinkedList[vertices];// array linked list of all the vertices
+        for (int i = 0; i < vertices; i++) { //for each vertices creating a new linked list
             list[i] = new SinglyLinkedList();
         }
-
     }
 
     public void printGraph() {
@@ -29,12 +26,10 @@ public class AdjList {
             }
             System.out.println();
         }
-
-
     }
     public void BFS(int roootnode){
         System.out.print("BFS traversing");
-      Queue q =new Queue(vertices);
+      Queues q =new Queues(vertices);
         boolean visited[]=new boolean[vertices];
         q.enqueue(roootnode);
         visited[roootnode]=true;
@@ -57,6 +52,7 @@ public class AdjList {
         dfs(rootnode,visited);
 
     }
+    
     void dfs(int rootnode,boolean[] visited){
         visited[rootnode] = true; //sets the first node to true
         System.out.println(rootnode);
@@ -69,18 +65,17 @@ public class AdjList {
         }
 
     }
-    public List<Integer> getadjNodes(int i) {
+    public List<Integer> getadjNodes(int i) { 
         ArrayList<Integer> adjlist = new ArrayList<>();
         SinglyLinkedList.Node current = list[i].head;
         while (current != null) {
             System.out.println(current.data + ",");
             current = current.next;
         }
-
-return adjlist;
+    return adjlist;
     }
 
-    public void addEdge(int source, int destination){
+    public void addEdge(int source, int destination){ //to add an bothway edge we are linking the list at the source and inserting destination
         list[source].insert(destination);
         list[destination].insert(source);
 

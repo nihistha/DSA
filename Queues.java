@@ -1,9 +1,9 @@
-public class Queue{
+public class Queues{
     int queue[];
     int size;
     int front = -1;
     int rear = -1;
-    Queue(int size){
+    Queues(int size){
         this.size = size;
         queue = new int[size];
     }

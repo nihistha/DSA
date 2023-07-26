@@ -5,7 +5,7 @@ public class stacks {
     stacks(int size){
         this.size = size;
         stk = new char[size];
-
+        
     }
     char peek(){
         return stk[top];

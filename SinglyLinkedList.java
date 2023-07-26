@@ -59,13 +59,6 @@ public class SinglyLinkedList {
             tail = temp;
             temp.next = null;
         }
-        // else{
-        //     for (int i = 0 ; i <pos;i++){
-        //         nodetoremove = temp.next;
-        //     }
-        //     temp.next=nodetoremove.next;
-        //     nodetoremove.next=null;
-        // }
         size--;
         System.out.println(size);
     }

@@ -40,5 +40,3 @@ public class CircularQueue{
         return rear == -1 && front == -1;
     }
 } 
-    
-

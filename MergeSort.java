@@ -3,10 +3,9 @@ import javax.xml.stream.events.StartElement;
 
 public class MergeSort {
     public void merge(int arr[],int start,int mid,int end){
-        int len = arr.length; 
         int n1 = mid -start +1; // the length will be 3
         int n2 = end - mid; //the length will be four
-        int l[] = new int[n1]; 
+        int l[] = new int[n1];  
         int r[] = new int[n2];
 
         for(int i = 0;i<n1;i++){
@@ -20,7 +19,7 @@ public class MergeSort {
         int j = 0;
         int k = start; //start = 0
         while(i<n1 && j<n2){
-            if (l[i]<=r[j]){
+            if (l[i] < r[j]){
                 arr[k] =l[i]; //
                 i++;
             }else{
@@ -41,17 +40,52 @@ public class MergeSort {
         }
         
     }
+    public void mergeAgain(int[] arr, int start, int mid,int end){
+        int n1 = mid - start+1; 
+        int n2 = end - mid;
+        int l[] = new int[n1];
+        int r[] = new int[n2];
+        for(int i = 0;i<n1;i++){
+            l[i] =arr[start+i];
+        }
+        for(int j=0;j<n2;j++){
+            r[j] = arr[mid+1+j];
+        }
+        int i = 0;
+        int j = 0;
+        int x = start; //v imp
+        while(i<n1 && j<n2){
+            if(l[i]<r[j]){
+                arr[x] = l[i];
+                i++;
+            }else{
+                arr[x] = r[j];
+                j++;
+            }
+            x++;
+        }
+        while(i<n1){
+            arr[x] = l[i];
+            i++;
+            x++;
+        }
+        while(j<n2){
+            arr[x] = r[j];
+            j++;
+            x++;
+        }
+    }
     public void mergeSort(int a[],int start,int end){
-        if(start<end){
+        if(start < end){
         int mid = (start + end )/2;
         mergeSort(a,start,mid);
         mergeSort(a, mid+1, end);
-        merge(a,start,mid,end);
+        mergeAgain(a, start, mid, end);
         }
         
     } 
     public void print(int arr[]){
-        for (int i = 0; i<arr.length-1;i++){
+        for (int i = 0; i<arr.length;i++){
             System.out.println(arr[i]);
         }
     }
